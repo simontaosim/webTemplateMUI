@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
-
+import {connect} from 'react-redux';
+import {  openUserRegWin } from '../../actions/users';
 
 
 const styles = theme => ({
@@ -28,46 +29,15 @@ const styles = theme => ({
     top: '180px',
     width: '60%',
     position: 'relative',
-  },
-  button: {
-    margin: theme.spacing.unit,
-  },
+  }
  
 });
 
 class AppBanner extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            auth: true,
-            anchorEl: null,
-            drawer: false,
-        }
-    }
-    toggleDrawer = (open) => () => {
-        this.setState({
-            drawer: open,
-        });
-    };
-    handleChange = (event, checked) => {
-        this.setState({ auth: checked });
-    };
 
-    handleMenu = event => {
-        this.setState({ anchorEl: event.currentTarget });
-    };
-
-    handleClose = () => {
-        this.setState({ anchorEl: null });
-    };
-    componentDidMount(){
-        
-    }
 
   render() {
-    const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
-    const open = Boolean(anchorEl);
+    const { classes, dispatch } = this.props;
    
     return (
       <div className={classes.root}>
@@ -77,7 +47,7 @@ class AppBanner extends React.Component {
                 <Button variant="raised" className={classes.button}>
                     了解更多
                 </Button>
-                <Button variant="raised"  className={classes.button}>
+                <Button onClick={()=>dispatch(openUserRegWin())} variant="raised"  className={classes.button}>
                     立即认购
                 </Button>
             </div>
@@ -89,5 +59,10 @@ class AppBanner extends React.Component {
 AppBanner.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+function mapUserState(state){
+    return {
+        user: state.AppUser
+    }
+}
 
-export default withStyles(styles)(AppBanner);
+export default connect(mapUserState)(withStyles(styles)(AppBanner));

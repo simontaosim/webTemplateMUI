@@ -9,23 +9,19 @@ import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import AccountCircle from 'material-ui-icons/AccountCircle';
-import Menu, { MenuItem, MenuList } from 'material-ui/Menu';
+import { MenuItem, MenuList } from 'material-ui/Menu';
 import Hidden from 'material-ui/Hidden';
 import withWidth from 'material-ui/utils/withWidth';
 import Drawer from 'material-ui/Drawer';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import InboxIcon from 'material-ui-icons/Inbox';
-import DraftsIcon from 'material-ui-icons/Drafts';
-import Avatar from 'material-ui/Avatar';
-import ImageIcon from 'material-ui-icons/Image';
-import WorkIcon from 'material-ui-icons/Work';
-import BeachAccessIcon from 'material-ui-icons/BeachAccess';
 import Button from 'material-ui/Button';
 import Grow from 'material-ui/transitions/Grow';
 import Paper from 'material-ui/Paper';
 import { Manager, Target, Popper } from 'react-popper';
 import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
+import RegisterLoginModal from './RegisterLoginModal.js';
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -52,7 +48,16 @@ const styles = theme => ({
     flex: 1,
     color: "white",
     fontWeight: 'bolder',
-    fontSize: '29px'
+    fontSize: '29px',
+    [theme.breakpoints.down('sm')]: {
+      margin: theme.spacing.unit*0,
+      color: "white",
+      fontWeight: 'bolder',
+      fontSize: '15px',
+      ListItemText: {
+          color: 'white',
+      },
+    },
   },
   button: {
     margin: theme.spacing.unit*0.5,
@@ -61,7 +66,25 @@ const styles = theme => ({
     fontSize: '20px',
     ListItemText: {
         color: 'white',
-    }
+    },
+    [theme.breakpoints.down('sm')]: {
+      margin: theme.spacing.unit*0,
+      color: "white",
+      fontWeight: 'bolder',
+      fontSize: '18px',
+      ListItemText: {
+          color: 'white',
+      },
+    },
+  },
+  listItem:{
+    margin: theme.spacing.unit*0.5,
+    color: "white",
+    fontWeight: 'bolder',
+    fontSize: '20px',
+    ListItemText: {
+        color: 'white',
+    },
   },
   menuButton: {
     marginLeft: -12,
@@ -86,7 +109,6 @@ class MenuAppBar extends React.Component {
         super(props);
         this.state = {
             auth: true,
-            anchorEl: null,
             drawer: false,
             open: false,
         }
@@ -115,9 +137,6 @@ class MenuAppBar extends React.Component {
     this.setState({ auth: checked });
   };
 
-  handleMenu = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
 
   handleClose = () => {
     if (!this.state.open) {
@@ -126,7 +145,6 @@ class MenuAppBar extends React.Component {
     this.timeout = setTimeout(() => {
     this.setState({ open: false });
     });
-    this.setState({ anchorEl: null });
   };
   componentDidMount(){
       document.title = "币链名字";
@@ -135,7 +153,7 @@ class MenuAppBar extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
+    const { auth } = this.state;
     const { open } = this.state;
     const sideList = (
         <div>
@@ -146,42 +164,24 @@ class MenuAppBar extends React.Component {
                                 onKeyDown={this.toggleDrawer(false)}
                                 
                                 >
-                <ListItemIcon className={classes.button}>
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText classes={{primary: classes.button}} primary="首页" />
+
+                <ListItemText classes={{primary: classes.listItem}} primary="首页" />
                 </ListItem>
                 <ListItem button>
-                <ListItemIcon  className={classes.button}>
-                    <DraftsIcon />
-                </ListItemIcon>
-                <ListItemText  classes={{primary: classes.button}} primary="资源" />
+ 
+                <ListItemText  classes={{primary: classes.listItem}} primary="资源" />
                 </ListItem>
                 <ListItem button>
-                <ListItemIcon className={classes.button}>
-                    <DraftsIcon />
-                </ListItemIcon>
-                <ListItemText classes={{primary: classes.button}} primary="问答" />
+                
+                <ListItemText classes={{primary: classes.listItem}} primary="问答" />
                 </ListItem>
                 <ListItem button>
-                <ListItemIcon className={classes.button}>
-                    <DraftsIcon />
-                </ListItemIcon>
-                <ListItemText classes={{primary: classes.button}} primary="博客" />
+                
+                <ListItemText classes={{primary: classes.listItem}} primary="博客" />
                 </ListItem>
+                
             </List>
-            <Divider />
-            <List component="nav">
-                <ListItem button>
-                <ListItemText classes={{primary: classes.button}} primary="个人中心" />
-                </ListItem>
-                <ListItem button>
-                <ListItemText classes={{primary: classes.button}} primary="资料" />
-                </ListItem>
-                <ListItem button component="a" href="#">
-                <ListItemText classes={{primary: classes.button}} primary="安全登出" />
-                </ListItem>
-            </List>
+            
         </div>
       );
     return (
@@ -204,7 +204,7 @@ class MenuAppBar extends React.Component {
               币链logo
             </Typography>
             
-            <Hidden mdDown>
+            <Hidden smDown>
             <div>
                 <Button className={classes.button}>首页</Button>
                 <Button color="primary" className={classes.button}>
@@ -217,13 +217,21 @@ class MenuAppBar extends React.Component {
                     博客
                 </Button>
             </div>
+            <div>
+                
+                
+            </div>
+           
+            </Hidden>
+            <RegisterLoginModal />
             {auth && (
              <Manager>
-             <Target>
+             <Target >
                <IconButton
                  aria-owns={open ? 'menu-list' : null}
                  aria-haspopup="true"
                  onClick={this.handleClick}
+                 className={classes.button}
                >
                 <AccountCircle />
                </IconButton>
@@ -248,8 +256,6 @@ class MenuAppBar extends React.Component {
              </Popper>
            </Manager>
             )}
-            </Hidden>
-            
           </Toolbar>
         </AppBar>
       </div>

@@ -4,6 +4,7 @@ import React from 'react'
 import { withStyles } from 'material-ui/styles';
 import withRoot from '../withRoot';
 import MenuAppBar from './MenuAppBar';
+import Gun from 'gun';
 
 const styles = theme => ({
   root: {
@@ -18,7 +19,11 @@ const styles = theme => ({
 
 class MainLayout extends React.Component{
    
-
+  constructor(props){
+    super(props);
+    this.gun=Gun(['https://gun-cwrbxtgana.now.sh/gun']);
+    window.gun = this.gun; 
+  }
   render(){
     const { classes } = this.props;
       return(
