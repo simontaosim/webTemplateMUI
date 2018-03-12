@@ -1,4 +1,5 @@
 import Gun from 'gun';
+
 require('gun/sea/user.js');
 const gun = new Gun(['https://gun-cwrbxtgana.now.sh/gun']);
 
@@ -12,4 +13,15 @@ export function userReg(username, password, successCallBack, failCallBack){
         failCallBack(ack.err);
       } 
     });
+}
+
+export function icoUserReg(username, password, successCallBack, failCallBack){
+  gun.get("icoUsers").on(function(user){
+    
+    if(user.username === username){
+      console.log(user);
+    }
+  }, true);
+  
+  
 }

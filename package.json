@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "gun": "^0.9.96",
+    "ipfs": "^0.28.1",
     "material-ui": "^1.0.0-beta.35",
     "material-ui-icons": "^1.0.0-beta.35",
     "react": "^16.2.0",
@@ -16,10 +17,13 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "node ./server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "fe": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "ipfs-api": "^18.1.2"
   }
 }
