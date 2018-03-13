@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "async-series": "0.0.1",
     "gun": "^0.9.96",
     "ipfs": "^0.28.1",
     "ipfs-repo": "^0.18.7",
+    "ipfsd-ctl": "^0.29.1",
     "koa": "^2.5.0",
     "material-ui": "^1.0.0-beta.35",
     "material-ui-icons": "^1.0.0-beta.35",
@@ -23,7 +25,8 @@
     "build": "react-scripts build",
     "fe": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "backend": "node ./server/index.js"
   },
   "devDependencies": {
     "ipfs-api": "^18.1.2"
