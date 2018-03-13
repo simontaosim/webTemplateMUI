@@ -9,10 +9,9 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import Typography from 'material-ui/Typography';
 import AppBanner from './banner.js';
-const ipfs = window.IpfsApi({host: window.document.domain, port: '5002', protocol: 'http'});
-
-
-
+const hostName = "192.168.1.107";
+const hostPort = "33167"
+const ipfs = window.IpfsApi({host: hostName, port: hostPort, protocol: 'http'});
 
 let saveImageOnIpfs = (reader) => {
   return new Promise(function(resolve, reject) {
@@ -79,8 +78,8 @@ class Home extends React.Component {
               {
                 this.state.imgSrc
                   ? <div>
-                      <h2>{"http://"+window.document.domain+":9090/ipfs/" + this.state.imgSrc}</h2>
-                      <img alt="区块链部落" style={{}} src={"http://"+window.document.domain+":9090/ipfs/" + this.state.imgSrc}/>
+                      <h2>{"http://"+hostName+":9090"+"/ipfs/" + this.state.imgSrc}</h2>
+                      <img alt="区块链部落" style={{}} src={"http://"+hostName+":9090"+"/ipfs/" + this.state.imgSrc}/>
                     </div>
                   : <img alt=""/>
               }
