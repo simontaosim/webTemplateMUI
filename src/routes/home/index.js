@@ -9,8 +9,9 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import Typography from 'material-ui/Typography';
 import AppBanner from './banner.js';
+
 const hostName = "192.168.1.107";
-const hostPort = "33167"
+const hostPort = "33167";
 const ipfs = window.IpfsApi({host: hostName, port: hostPort, protocol: 'http'});
 
 let saveImageOnIpfs = (reader) => {
