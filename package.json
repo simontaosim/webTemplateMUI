@@ -4,11 +4,9 @@
   "private": true,
   "dependencies": {
     "async-series": "0.0.1",
-    "gun": "^0.9.96",
-    "ipfs": "^0.28.1",
-    "ipfs-repo": "^0.18.7",
-    "ipfsd-ctl": "^0.29.1",
     "koa": "^2.5.0",
+    "koa-send": "^4.1.3",
+    "koa-static": "^4.0.2",
     "material-ui": "^1.0.0-beta.35",
     "material-ui-icons": "^1.0.0-beta.35",
     "react": "^16.2.0",
