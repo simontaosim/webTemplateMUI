@@ -16,7 +16,6 @@ import { FormControl } from 'material-ui/Form';
 import Visibility from 'material-ui-icons/Visibility';
 import VisibilityOff from 'material-ui-icons/VisibilityOff';
 import MessageInfo from './MessageInfo';
-import { loadUserReg } from '../actions/users';
 import { CircularProgress } from 'material-ui/Progress';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 
@@ -179,8 +178,6 @@ class RegisterLoginModal extends React.Component{
           })
           return false;
         }
-        // Browser Native Web Crypto API is used to PBKDF2 extend your password.
-        dispatch(loadUserReg(this.state.username, this.state.password));
         
       }
       handleMessageInfoClose(open){

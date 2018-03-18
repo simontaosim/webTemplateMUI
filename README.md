@@ -6,6 +6,8 @@
 this command is to init the database
 4. cmd: npm install
 this command is to install dependency
-5. cmd: npm run build
-6. cmd: pm2 start ./server/index.js
-7. listen on localhost:8361
+5. cmd: npm run build //to build the client app 
+6. cmd: npm start //to start a development server to serve the client app
+7. cmd: node ./server/index.js //to start a the koa server side
+8. server listen on localhost:8361
+9. client listen on localhost:3000

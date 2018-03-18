@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import {connect} from 'react-redux';
-import {  openUserRegWin } from '../../actions/users';
 
 
 const styles = theme => ({
@@ -47,7 +46,7 @@ class AppBanner extends React.Component {
                 <Button variant="raised" className={classes.button}>
                     了解更多
                 </Button>
-                <Button onClick={()=>dispatch(openUserRegWin())} variant="raised"  className={classes.button}>
+                <Button onClick={()=>{}} variant="raised"  className={classes.button}>
                     立即认购
                 </Button>
             </div>
