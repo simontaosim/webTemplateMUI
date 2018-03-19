@@ -13,6 +13,10 @@ class User extends DataModel{
         password: this.password,
       }
     }
+    create(username, password){
+      this.username = username;
+      this.password = password;
+    }
   }
 
   module.exports = User;

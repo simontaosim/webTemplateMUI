@@ -6,6 +6,7 @@
     "async-series": "0.0.1",
     "koa": "^2.5.0",
     "koa-render": "^0.2.1",
+    "koa-router": "^7.4.0",
     "koa-send": "^4.1.3",
     "koa-static": "^4.0.2",
     "koa-views": "^6.1.4",
@@ -21,12 +22,11 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "npm run copy && cd ./client && react-scripts start",
-    "build": "react-scripts build",
-    "fe": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "backend": "node ./taosim_manage/index.js",
+    "start-client": "npm run copy && cd ./client && react-scripts start",
+    "build-client": "npm run copy && cd ./client && react-scripts build",
+    "test-client": "npm run copy && cd ./client && react-scripts test --env=jsdom",
+    "eject-client": "npm run copy && cd ./client && react-scripts eject",
+    "start": "node ./server/index.js",
     "copy": "node -e \"const fs = require('fs');fs.createReadStream('package.json').pipe(fs.createWriteStream('client/package.json'));\""
   },
   "devDependencies": {
