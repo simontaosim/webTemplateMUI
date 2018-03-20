@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const Router = require('koa-router');
+const Site = require('./models/Site.js');
 
 
 const router = new Router();
@@ -19,8 +20,17 @@ router
   ctx.body = await readFileThunk(path.resolve('./client','build','index.html'));
   await next();
 })
-.get('/api/v1', async (ctx, next) => {
-  ctx.body = 'hello world';
+.get('/api/v1/site/home', async (ctx, next) => {
+  ctx.response.is('application/json');
+  ctx.set('Cache-Control', 'no-cache');
+  ctx.request.accepts('json', 'text');
+  let site = await new Site();
+  let currentSite = await site.getByHostname(ctx.state.hostname);
+  if(currentSite.length === 0 ){
+    await site.seed();
+    currentSite = await site.getByHostname(ctx.state.hostname);
+  }
+  ctx.response.body = currentSite[0];
   await next();
 })
 .get('/api/v1/users/:token', async (ctx, next) => {

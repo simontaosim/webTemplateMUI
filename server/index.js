@@ -9,33 +9,36 @@ const app = new Koa();
 
 app.use(async (ctx, next) => {
   let site = null;
-  switch(ctx.header.hostname){
+  
+  switch(ctx.header.host){
     case "taosim.net":
       ctx.state = Object.assign({},ctx.state,{
         sitename: "taosim.net",
-        title: "道者网",
       } );
-      site = new Site(); 
+      
       await next(ctx);
       break;
     default:
+      site = await new Site(); 
+      let currentSite = await site.getByHostname("taosim.net");
+      
+      if (currentSite.length === 0) {
+        console.log("taosim.net is not find first tim e");
+        
+        site.seed();
+      }
+     
       ctx.state = Object.assign({},ctx.state,{
         hostname: "taosim.net",
-        title: "道者网"
       } );
-      site = await new Site(ctx.state.sitename, ctx.header.hostname);
-      let currentSite = await site.getByHostname(ctx.state.hostname);
-      if(!currentSite){
-        console.log('当前没有网站，请使用种子数据');
-        
-      }
-      
-      
             
       await next(ctx);
       break;
   }
 });
+const json = require('koa-json');
+app.use(json({ pretty: false, param: 'pretty' }))
+
 app.use(routes);
 
 app.use(async (ctx) => {

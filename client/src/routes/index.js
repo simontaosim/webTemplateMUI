@@ -12,6 +12,8 @@ import createHistory from 'history/createHashHistory';
 
 import MainLayout from '../layouts/MainLayout.js';
 import Home from './home/index.js'
+import {connect} from 'react-redux';
+import { loadHomeSiteData } from '../actions/site';
 
 const history = createHistory();
 
@@ -35,6 +37,10 @@ class App extends React.Component {
             open: true,
         });
     };
+    componentDidMount(){
+        const { dispatch, store} = this.props;
+        dispatch(loadHomeSiteData());
+    }
 
     render(){
         const { classes } = this.props;
@@ -52,5 +58,10 @@ class App extends React.Component {
 App.propTypes = {
     classes: PropTypes.object.isRequired,
   };
-  
-export default withRoot(withStyles(styles)(App));
+
+  function mapUserState(state){
+    return {
+        store: state
+    }
+}
+export default connect(mapUserState)(withRoot(withStyles(styles)(App)));
