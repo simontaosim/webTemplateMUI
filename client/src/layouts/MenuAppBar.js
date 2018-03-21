@@ -147,7 +147,7 @@ class MenuAppBar extends React.Component {
     });
   };
   componentDidMount(){
-      document.title = "币链名字";
+      document.title = "WMV.io";
       clearTimeout(this.timeout);
   }
 
@@ -201,7 +201,7 @@ class MenuAppBar extends React.Component {
             </Hidden>
            
             <Typography variant="title" color="inherit" className={classes.flex}>
-              币链logo
+              WMV.io
             </Typography>
             
             <Hidden smDown>

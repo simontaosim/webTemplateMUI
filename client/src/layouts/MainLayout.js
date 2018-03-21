@@ -9,6 +9,14 @@ const styles = theme => ({
   root: {
     textAlign: 'center',
     paddingTop: theme.spacing.unit * 0,
+    height: "auto",
+    width: "100%",
+    background: "black",
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+    alignItems: "center",
+    justifyItems: "stretch"
   },
   child: {
       top: '100px',
@@ -27,7 +35,7 @@ class MainLayout extends React.Component{
       return(
         <div className={classes.root}>
             <MenuAppBar />
-            <div className={classes.child}>
+            <div  className={classes.root}>
                 {this.props.children}
             </div>
         </div>

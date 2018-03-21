@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import {connect} from 'react-redux';
-
+import Image from '../banner.jpg';
 
 const styles = theme => ({
   root: {
-    background: 'url(https://eos.io/images/dawn_topbanner.jpg)',
+    background: 'url('+Image+')',
     backgroundSize: 'cover',
     width: '100%',
     height: '600px',
-    top: '-100px',
+    top: '5px',
     position: 'relative',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -41,8 +41,8 @@ class AppBanner extends React.Component {
     return (
       <div className={classes.root}>
             <div className={classes.slogan}>
-                <h1>HCASH</h1>
-                <h3>重塑价值</h3>
+                <h1>WMV</h1>
+                <h3>欲说还羞流于链</h3>
                 <Button variant="raised" className={classes.button}>
                     了解更多
                 </Button>
