@@ -21,7 +21,7 @@ import Paper from 'material-ui/Paper';
 import { Manager, Target, Popper } from 'react-popper';
 import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
 import RegisterLoginModal from './RegisterLoginModal.js';
-
+import LogoSmall from '../routes/logo_small.png'
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -48,16 +48,26 @@ const styles = theme => ({
     flex: 1,
     color: "white",
     fontWeight: 'bolder',
-    fontSize: '29px',
+    fontSize: '25px',
+    display: "flex",
+    height: "60px",
     [theme.breakpoints.down('sm')]: {
       margin: theme.spacing.unit*0,
       color: "white",
       fontWeight: 'bolder',
       fontSize: '15px',
+      height: "80px",
       ListItemText: {
           color: 'white',
       },
     },
+  },
+  logoImage: {
+    width: "80px",
+    [theme.breakpoints.down('sm')]: {
+      width: "20px",
+      height: "15px",
+    }
   },
   button: {
     margin: theme.spacing.unit*0.5,
@@ -147,7 +157,7 @@ class MenuAppBar extends React.Component {
     });
   };
   componentDidMount(){
-      document.title = "WMV.io";
+      document.title = "WOMAN MAN VLAUE";
       clearTimeout(this.timeout);
   }
 
@@ -165,19 +175,19 @@ class MenuAppBar extends React.Component {
                                 
                                 >
 
-                <ListItemText classes={{primary: classes.listItem}} primary="首页" />
+                <ListItemText classes={{primary: classes.listItem}} primary="Home" />
                 </ListItem>
                 <ListItem button>
  
-                <ListItemText  classes={{primary: classes.listItem}} primary="资源" />
+                <ListItemText  classes={{primary: classes.listItem}} primary="White Paper" />
                 </ListItem>
                 <ListItem button>
                 
-                <ListItemText classes={{primary: classes.listItem}} primary="问答" />
+                <ListItemText classes={{primary: classes.listItem}} primary="Q&A " />
                 </ListItem>
                 <ListItem button>
                 
-                <ListItemText classes={{primary: classes.listItem}} primary="博客" />
+                <ListItemText classes={{primary: classes.listItem}} primary="Blog" />
                 </ListItem>
                 
             </List>
@@ -201,20 +211,31 @@ class MenuAppBar extends React.Component {
             </Hidden>
            
             <Typography variant="title" color="inherit" className={classes.flex}>
-              WMV.io
+                  <Hidden smDown>
+                    <img className={classes.logoImage} src={LogoSmall}  />
+                  </Hidden>
+                    <div>
+              <span style={{
+                color: "#F596AA"
+              }}>W</span><span>OMAN <span style={{
+                color: "#622954"
+              }}>M</span>AN <span style={{
+                fontWeight: "bold"
+              }}>VLAUE</span></span>
+              </div>
             </Typography>
             
             <Hidden smDown>
             <div>
-                <Button className={classes.button}>首页</Button>
+                <Button className={classes.button}>Home</Button>
                 <Button color="primary" className={classes.button}>
-                    资源
+                    White Paper
                 </Button>
                 <Button color="primary" className={classes.button}>
-                    问答
+                    Q&A
                 </Button>
                 <Button color="primary" className={classes.button}>
-                    博客
+                    Blog
                 </Button>
             </div>
             <div>

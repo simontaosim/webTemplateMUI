@@ -41,8 +41,8 @@ class AppBanner extends React.Component {
     return (
       <div className={classes.root}>
             <div className={classes.slogan}>
-                <h1>WMV</h1>
-                <h3>欲说还羞流于链</h3>
+                <h1>WOMAN MAN VLAUE</h1>
+                <h3>Adults Should Be Protected</h3>
                 <Button variant="raised" className={classes.button}>
                     了解更多
                 </Button>

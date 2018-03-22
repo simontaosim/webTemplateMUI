@@ -124,7 +124,8 @@ class RegisterLoginModal extends React.Component{
       }
     
       handleRegClickOpen = () => {
-        this.setState({ regOpen: true });
+        window.location.assign("https://docs.google.com/forms/d/e/1FAIpQLSdhFajVIn-tFlutIVaaGdv7BeTvzX_5yCYTGuybHuc6T1SGqQ/viewform");
+        // this.setState({ regOpen: true });
       };
     
       handleRegClose = () => {
@@ -194,10 +195,10 @@ class RegisterLoginModal extends React.Component{
         <div className={classes.root}>
            
             <Button onClick={this.handleRegClickOpen} className={classes.button}>
-                登录
+                Login
             </Button>
             <Button onClick={this.handleRegClickOpen}  className={classes.button}>
-                注册
+                Register
             </Button>
             <Dialog
             open={this.state.regOpen}
