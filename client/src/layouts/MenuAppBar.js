@@ -48,15 +48,23 @@ const styles = theme => ({
     flex: 1,
     color: "white",
     fontWeight: 'bolder',
-    fontSize: '25px',
+    fontSize: '28px',
     display: "flex",
     height: "60px",
+    justifyContent: "center",
+    justifyItems: "center",
+    alignItems: "center",
     [theme.breakpoints.down('sm')]: {
       margin: theme.spacing.unit*0,
       color: "white",
       fontWeight: 'bolder',
-      fontSize: '15px',
-      height: "80px",
+      height: "54px",
+      fontSize: "28px",
+      textAlign: "center",
+      display: "flex",
+      justifyContent: "center",
+      justifyItems: "center",
+      alignItems: "center",
       ListItemText: {
           color: 'white',
       },
@@ -82,6 +90,7 @@ const styles = theme => ({
       color: "white",
       fontWeight: 'bolder',
       fontSize: '18px',
+     
       ListItemText: {
           color: 'white',
       },
@@ -177,17 +186,40 @@ class MenuAppBar extends React.Component {
 
                 <ListItemText classes={{primary: classes.listItem}} primary="Home" />
                 </ListItem>
+                <ListItem button tabIndex={0}
+                                role="button"
+                                onClick={this.toggleDrawer(false)}
+                                onKeyDown={this.toggleDrawer(false)}
+                                
+                                >
+
+                <ListItemText classes={{primary: classes.listItem}} primary="Login" />
+                </ListItem>
+                <ListItem button tabIndex={0}
+                                role="button"
+                                onClick={this.toggleDrawer(false)}
+                                onKeyDown={this.toggleDrawer(false)}
+                                
+                                >
+
+                <ListItemText classes={{primary: classes.listItem}} primary="New User" />
+                </ListItem>
                 <ListItem button>
  
                 <ListItemText  classes={{primary: classes.listItem}} primary="White Paper" />
                 </ListItem>
                 <ListItem button>
+ 
+                <ListItemText  classes={{primary: classes.listItem}} primary="Tech" />
+                </ListItem>
+
+                <ListItem button>
                 
-                <ListItemText classes={{primary: classes.listItem}} primary="Q&A " />
+                <ListItemText classes={{primary: classes.listItem}} primary="Team" />
                 </ListItem>
                 <ListItem button>
                 
-                <ListItemText classes={{primary: classes.listItem}} primary="Blog" />
+                <ListItemText classes={{primary: classes.listItem}} primary="Business" />
                 </ListItem>
                 
             </List>
@@ -198,7 +230,7 @@ class MenuAppBar extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" className={classes.appbar}>
           <Toolbar>
-            <Hidden mdUp>
+            
                 <IconButton onClick={this.toggleDrawer(true)} className={classes.menuButton} color="inherit" aria-label="Menu">
                     <MenuIcon />
                 </IconButton>
@@ -208,7 +240,6 @@ class MenuAppBar extends React.Component {
                     }} open={this.state.drawer} onClose={this.toggleDrawer(false)}>
                     {sideList}
                 </Drawer>
-            </Hidden>
            
             <Typography variant="title" color="inherit" className={classes.flex}>
                   <Hidden smDown>
@@ -218,65 +249,12 @@ class MenuAppBar extends React.Component {
               <span style={{
                 color: "#F596AA"
               }}>W</span><span>OMAN <span style={{
-                color: "#622954"
+                color: "rgb(0, 84, 152)"
               }}>M</span>AN <span style={{
                 fontWeight: "bold"
               }}>VLAUE</span></span>
               </div>
             </Typography>
-            
-            <Hidden smDown>
-            <div>
-                <Button className={classes.button}>Home</Button>
-                <Button color="primary" className={classes.button}>
-                    White Paper
-                </Button>
-                <Button color="primary" className={classes.button}>
-                    Q&A
-                </Button>
-                <Button color="primary" className={classes.button}>
-                    Blog
-                </Button>
-            </div>
-            <div>
-                
-                
-            </div>
-           
-            </Hidden>
-            <RegisterLoginModal />
-            {auth && (
-             <Manager>
-             <Target >
-               <IconButton
-                 aria-owns={open ? 'menu-list' : null}
-                 aria-haspopup="true"
-                 onClick={this.handleClick}
-                 className={classes.button}
-               >
-                <AccountCircle />
-               </IconButton>
-             </Target>
-             <Popper
-             
-               placement="bottom-start"
-               eventsEnabled={open}
-               className={classNames({ [classes.popperClose]: !open })}
-             >
-               <ClickAwayListener onClickAway={this.handleClose}>
-                 <Grow in={open} id="menu-list" style={{ transformOrigin: '0 0 0' }}>
-                   <Paper className={classes.paper}>
-                     <MenuList role="menu" >
-                       <MenuItem  className={classes.menuList} onClick={this.handleClose}>资料</MenuItem>
-                       <MenuItem  className={classes.menuList} onClick={this.handleClose}>个人中心</MenuItem>
-                       <MenuItem  className={classes.menuList} onClick={this.handleClose}>安全退出</MenuItem>
-                     </MenuList>
-                   </Paper>
-                 </Grow>
-               </ClickAwayListener>
-             </Popper>
-           </Manager>
-            )}
           </Toolbar>
         </AppBar>
       </div>

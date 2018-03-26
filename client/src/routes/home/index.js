@@ -14,104 +14,45 @@ const styles = theme => ({
     root: {
         color: "white",
         position: "relative",
-        height: "auto",
+        height: "-webkit-fill-available",
         width: "100%",
        
       
     },
     mainContent:{
         position: "relative",
-        top: "-85px",
         textAlign: "center",
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center"
-    },
-    mainContentBlock:{
-        position: "relative",
-        paddingTop: "25px",
-        justifyContent: "center",        
-        width: "80%",
+        width: "100%",
+        justifyContent: "space-around",
+        top: "-61%",
+        height: "400px",
         [theme.breakpoints.down('md')]: {
-            position: "relative",
-            paddingTop: "20px",
-           },
-    },
-    paper: {
-    
-      textAlign: "center",
-      textIndent: "0",
-      backgroundColor: "black",
-      marginLeft: '10%',
-      marginRight: '10%',
-      width: "32%",
-      display: "block",
-      marginTop: "25px", 
-      [theme.breakpoints.down('md')]: {
-        width: "80%",
-        marginLeft: '5%',
-        marginRight: '5%',
-      },
-    },
-    papers: {
-        display: "flex",
-        marginTop: "10px", 
-        marginBottom: "20px",
-        width: "100%",        
-               
-        [theme.breakpoints.down('md')]: {
-            display: "flex",
             flexDirection: "column",
-           marginTop: "5px",        
-           marginBottom: "5px", 
-        alignItems: "center",
-           
-           justifyContent: "center",       
+            top: "-60%",
+            height: "400px",
+            justifyContent: "space-around",
+            alignItems: "center",
            
           },
+        
     },
-    papersRound: {
+    mainContentBlock: {
+        paddingBottom: "21%",
+        paddingTop: "20%",
         display: "flex",
-        marginTop: "10px", 
-        marginBottom: "20px",
-        width: "100%",  
-        justifyContent: "center",      
-               
+        justifyContent: "center",
+        alignItems: "center",
         [theme.breakpoints.down('md')]: {
-           marginTop: "5px",  
-           width: "100%",         
-           marginBottom: "5px", 
-           display: "block",
-           position: "relative",
-           left: "5%"
-           
-           
-           
+            paddingTop: "0px",
+            paddingBottom: "0px",
+            marginBottom: "0px",
           },
     },
-    paperRound: {
-        width: "120px",
-        height: "120px",
-        MozTransitionDuration: "0.8s", backgroundColor: "#FFFFFF",
-        backgroundPosition: "-30px 50%",
-        border: "1px solid #CCCCCC",
-        borderRadius: "84px",
-        display: "block",
-        textAlign: "center",
-        textIndent: "0",
-        marginLeft: '1%',
-        marginRight: '1%',
-        marginTop: "25px", 
-        [theme.breakpoints.down('md')]: {
-            width: "100px",
-            height: "100px",
-            float: "left", 
-            display: "inline-block",
-            padding: "10px"
-           
-          },
-      }
+   
+   
    
   });
 
@@ -136,7 +77,6 @@ class Home extends React.Component {
         });
     };
     render(){
-        console.log(Image);
         
         const { classes, dispatch } = this.props;
         const { open } = this.state;
@@ -144,189 +84,27 @@ class Home extends React.Component {
             <div className={classes.root}>
               <AppBanner />
               <div className={classes.mainContent}>
-                <div className={classes.mainContentBlock} >
-                    <Typography className={classes.paper.Typography} style={{color: "white"}} variant="headline"  component="h3">
-                            认识WMV
-                    </Typography>
-                    <div className={classes.papers}>
-                        <Paper className={classes.paper} square={false} elevation={8}>
-                            
-                            <Typography style={{color: "white"}} component="p">
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                            </Typography>
-                        </Paper>
-                        <Paper className={classes.paper} square={false} elevation={8}>
-                            
-                            <Typography style={{color: "white"}} component="p">
-                            WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                            </Typography>
-                        </Paper>
-  
-                    </div>
-                                    
-                </div>
-                <div className={classes.mainContentBlock}>
-       
-                    <Typography className={classes.paper.Typography} style={{color: "white"}} variant="headline"  component="h3">
-                        我们该如何使用
-                    </Typography>
-                    <div className={classes.papers}>
-                        <Paper className={classes.paper} square={false} elevation={8}>
-                            
-                            <Typography style={{color: "white"}} component="p">
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                            </Typography>
-                        </Paper>
-                        <Paper className={classes.paper} square={false} elevation={8}>
-                            
-                            <Typography style={{color: "white"}} component="p">
-                            WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                            </Typography>
-                        </Paper>
-  
-                    </div>
-                    
-                </div>
-                <div className={classes.mainContentBlock}>
-                        <Typography className={classes.paper.Typography} style={{color: "white"}} variant="headline"  component="h3">
-                            为什么我们需要MWV？
-                        </Typography>
-                        <div className={classes.papers}>
-                        <Paper className={classes.paper} square={false} elevation={8}>
-                            
-                            <Typography style={{color: "white"}} component="p">
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                            </Typography>
-                        </Paper>
-                        <Paper className={classes.paper} square={false} elevation={8}>
-                            
-                            <Typography style={{color: "white"}} component="p">
-                            WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                                WMV, 基于区块链技术的成人产业平台
-                            </Typography>
-                        </Paper>
-  
-                    </div>
-                
-                </div>
-                <div className={classes.mainContentBlock}>
-                     <Typography className={classes.paper.Typography} style={{color: "white"}} variant="headline"  component="h3">
-                            团队介绍
-                        </Typography>
-                        <div className={classes.papersRound}>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                       1
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper  style={{
-                        backgroundColor: "black",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-around",
-                        alignItems: "center",
-                        height: 300,
-                        width:  250,
-                        padding: 20
-                    }} square={false} elevation={8}>
-                            <img className={classes.paperRound} src={Image} alt="Simon Xu" />
-                            <Typography  style={{color: "white"}}   component="h4">
-                                Simon XU
-                            </Typography>
-                            <Typography style={{color: "white"}} component="p">
-                                架构师，早年在菲律宾开发博彩系统，后归国创业
-                               
-                            </Typography>
-                    </Paper>
-                  
-                   
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    </div>
-                    
-                </div>
-                <div className={classes.mainContentBlock}>
-                     <Typography className={classes.paper.Typography} style={{color: "white"}} variant="headline"  component="h3">
-                            顾问团队
-                        </Typography>
-                        <div className={classes.papersRound}>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                       1
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    <Paper className={classes.paperRound} square={false} elevation={8}>
-                        2
-                    </Paper>
-                    </div>
-                    
-                </div>
-                <div id="footer" className={classes.mainContentBlock}>
-                        <h4>联系我们</h4>
-                        <div className={classes.papers}>
-                            <Paper   zDepth={1} circle={true} >
-                        
-                            </Paper>
-                            <Paper   zDepth={2} circle={true} />
-                    </div>
-                    
-                </div>
+              <div className={classes.mainContentBlock}>
+              <Button variant="raised" size="large" color="primary" className={classes.button}>
+                WMV TOKEN
+              </Button>
+              </div>
+              <div className={classes.mainContentBlock}>
+              <Button variant="raised" size="large" color="primary" className={classes.button}>
+                WMV EXCHANGE
+              </Button>
+              </div>
+              <div className={classes.mainContentBlock}>
+              <Button variant="raised" size="large" color="primary" className={classes.button}>
+                WMV BISNESS
+              </Button>
+              </div>
+              
+           
+               
+               
+               
+ 
             </div>
              
           </div>
